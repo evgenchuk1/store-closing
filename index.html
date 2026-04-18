@@ -89,10 +89,18 @@ var SECS=[
     {id:19,text:"נעילת משרד + בדיקת הפעלת אזעקה"},
     {id:20,text:"לכבות תאורה במקררים של הירק במחלקת ירקות"},
     {id:21,text:"נעילת דלת זכוכית הראשית"},
+    {id:26,text:"נעילת עגלות קניות"},
     {id:22,text:"סגירת תריס – מפתח צהוב"},
     {id:23,text:"כיבוי תאורה בשירותי אורחים"},
     {id:24,text:"כיבוי אורות כלליים"},
     {id:25,text:"הפעלת אזעקה ‼️"}
+  ]},
+  {t:"סגירה יום שישי",items:[
+    {id:27,text:"14:15 איסוף ירקות/פירות"},
+    {id:28,text:"ניקיון מדפים בירקות"},
+    {id:29,text:"ספירת ירקות/פירות"},
+    {id:30,text:"השמדת פגי תוקף עופות"},
+    {id:31,text:"ויטרינה בשר-פירוק כללי/ניקיון"}
   ]}
 ];
 var state={};
@@ -103,7 +111,7 @@ function tog(id){state[id]=!state[id];save();render();}
 function togP(id,e){e.stopPropagation();phOpen[id]=!phOpen[id];render();}
 function resetAll(){if(confirm('לאפס את כל הרשימה?')){state={};phOpen={};save();render();}}
 function render(){
-  var total=25,done=0;
+  var total=31,done=0;
   SECS.forEach(function(s){s.items.forEach(function(i){if(state[i.id])done++;});});
   document.getElementById('pc').textContent=done+' / '+total;
   document.getElementById('pb').style.width=(done/total*100)+'%';
@@ -136,10 +144,6 @@ function render(){
       app.appendChild(wrap);
     });
   });
-  var fl=document.createElement('div');fl.className='sec';fl.textContent='סגירה יום שישי';app.appendChild(fl);
-  var fb=document.createElement('div');fb.className='fri';
-  fb.innerHTML='<div class="fri-t">🟠 הוראות מיוחדות ליום שישי</div><div class="fri-b">בשעה 1:30 אוספים את כל צוות הסדרנים ומתחילים לרוקן 5 מתוך 6 שורות של ירקות — חוץ משורת תפוחי אדמה.<br><br>משאירים ארגז אחד מכל פריט לטובת הלקוחות האחרונים.<br><br>תוך כדי האיסוף עושים ספירה של כל הפירות והירקות.</div>';
-  app.appendChild(fb);
   if(done===total){
     var c=document.createElement('div');c.className='done-all';
     c.innerHTML='<div class="em">🎉</div><div class="msg">הסניף סגור! כל הכבוד!</div>';
