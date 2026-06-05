@@ -94,6 +94,14 @@ var SECS=[
     {id:24,text:"הפעלת אזעקה 2081 ‼️"},
     {id:25,text:"הורדת תריס בכניסה"},
     {id:26,text:"נעילת דלת כניסה – שני מנעולים ‼️"}
+  ]},
+  {t:"יום שישי",items:[
+    {id:27,text:"פירוק ירקות החל מ14:30"},
+    {id:28,text:"כיבוי תאורה בכלל המקררים"},
+    {id:29,text:"כיבוי תאורה במקרר ירקות"},
+    {id:30,text:"מכשיר ניילון אבטיחים לנתק ולהוציא מחשמל"},
+    {id:31,text:"מכשירים ניילון במעדניה בקצביה לנתק ולהוציא מהחשמל"},
+    {id:32,text:"קצביה - פירוק ויטרינה כללי"}
   ]}
 ]
 var state={};
@@ -104,7 +112,7 @@ function tog(id){state[id]=!state[id];save();render();}
 function togP(id,e){e.stopPropagation();phOpen[id]=!phOpen[id];render();}
 function resetAll(){if(confirm('לאפס את כל הרשימה?')){state={};phOpen={};save();render();}}
 function render(){
-  var total=31,done=0;
+  var total=32,done=0;
   SECS.forEach(function(s){s.items.forEach(function(i){if(state[i.id])done++;});});
   document.getElementById('pc').textContent=done+' / '+total;
   document.getElementById('pb').style.width=(done/total*100)+'%';
