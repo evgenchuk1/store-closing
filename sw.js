@@ -1,4 +1,4 @@
-const CACHE = 'closing-checklist-v3';
+const CACHE = 'closing-checklist-v4';
 const ASSETS = [
   './index.html',
   './manifest.json',
